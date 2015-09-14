@@ -19,7 +19,6 @@
 					<li ng-repeat="todo in todos">
 						<input type="checkbox" ng-model="todo.done" />
 						<span ng-class="{'done':todo.done}">{{todo.title}}</span>
-						
 					</li>
 				</ul>
 			</div>
@@ -28,7 +27,18 @@
 					$scope.todos = [
 						{'title': 'Build a todo app', 'done':false}
 					];
-				}];
+
+					$scope.addTodo = function(){
+						$scope.todos.push({'title':$scope.newTodo, 'done':false})
+						$scope.newTodo = ''
+					};
+
+					$scope.clearCompleted = function(){
+						$scope.todos = $scope.todos.filter(function(item){
+							return !item.done
+						});
+					};
+				}]);
 			</script>
 		</div>
 	</body>
