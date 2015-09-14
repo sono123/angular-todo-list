@@ -8,5 +8,15 @@
 	</head>
 
 	<body>
+		<div class="container" ng-app="ToDo">
+			<div ng-controller="todoController"></div>
+			<script>
+				angular.module('ToDo', []).controller('todoController',['$scope', function($scope){
+					$scope.todos = [
+						{'title': 'Build a todo app', 'done':false}
+					];
+				}];
+			</script>
+		</div>
 	</body>
 </html>
